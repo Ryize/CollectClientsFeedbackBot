@@ -61,6 +61,9 @@ def who_i(message):
 def save_btn(call):
     message = call.message
     chat_id = message.chat.id
+    message_id = message.message_id
+    bot.edit_message_text(chat_id=chat_id, message_id=message_id,
+                          text='Отредактировал!')
     bot.send_message(chat_id, f'Данные сохранены')
 
 
