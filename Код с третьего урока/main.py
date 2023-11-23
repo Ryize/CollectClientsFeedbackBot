@@ -63,15 +63,16 @@ def save_btn(call):
     chat_id = message.chat.id
     message_id = message.message_id
     bot.edit_message_text(chat_id=chat_id, message_id=message_id,
-                          text='Отредактировал!')
-    bot.send_message(chat_id, f'Данные сохранены')
+                          text='Данные сохранены!')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'change_data')
 def save_btn(call):
     message = call.message
     chat_id = message.chat.id
-    bot.send_message(chat_id, f'Изменение данных.')
+    message_id = message.message_id
+    bot.edit_message_text(chat_id=chat_id, message_id=message_id,
+                          text='Изменение данных!')
     write_to_support(message)
 
 
